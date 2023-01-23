@@ -24,8 +24,8 @@ export default function CommonLayout(props: CommonLayoutProps = initialProps): J
         <title>{props.title}</title>
         <meta name="description" content={metaDescription} />
         <meta name="keywords" content={props.keywords ? props.keywords.join(`, `) : ""} />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="favicon.ico" />
+        <link rel="manifest" href="manifest.json" />
       </Head>
       <>
         <ThemeProvider theme={styleConfig.theme}>
