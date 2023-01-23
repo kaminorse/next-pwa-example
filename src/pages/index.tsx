@@ -1,10 +1,5 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
 import CommonLayout from '@/layouts/CommonLayout'
 import PwaInstallButton from '@/components/PwaInstallButton'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -14,9 +9,9 @@ export default function Home() {
           {"Next.jsとPWAのサンプルサイト"}
         </h1>
         <section>
-          <div>
-            {"インストール可能な場合、下にボタンが表示されます。"}
-          </div>
+          <h2>
+            {"インストールボタン"}
+          </h2>
           <div style={{
             margin: "16px auto"
           }}>
@@ -24,8 +19,32 @@ export default function Home() {
           </div>
           <div>
             <small>
+              {"※インストール可能な場合、上にボタンが表示されます。"}
+            </small>
+          </div>
+          <div>
+            <small>
               {"※iOS および iPadOS の Chrome と Edge は PWA のインストールをサポートしていないため表示されない"}
             </small>
+          </div>
+        </section>
+        <section>
+          <h2>
+            {"PWA判定"}
+          </h2>
+          {
+            typeof window !== "undefined" && window.matchMedia('(display-mode: standalone)').matches ? (
+              <div style={{color: "green"}}>
+                {"現在、スタンドアローン(PWA)モード"}
+              </div>
+            ) : (
+              <div style={{color: "orange"}}>
+                {"現在、スタンドアローン（PWA）以外のモード"}
+              </div>
+            )
+          }
+          <div>
+            {"※PWAで動いてる場合、スタンドアローンモードで表示される設定にしている"}
           </div>
         </section>
       </CommonLayout>
