@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import CommonLayout from '@/layouts/CommonLayout'
+import PwaInstallButton from '@/components/PwaInstallButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -112,6 +113,9 @@ export default function Home() {
               </p>
             </a>
           </div>
+        </div>
+        <div>
+          <PwaInstallButton />
         </div>
 
       </CommonLayout>
