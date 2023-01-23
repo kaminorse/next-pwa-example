@@ -2,6 +2,9 @@
 
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  }
 };
 
 const withPWA = require('next-pwa')({
