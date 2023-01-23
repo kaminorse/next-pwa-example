@@ -21,6 +21,8 @@ jobs:
 
     - name: build
       run: npm run build
+      env:
+        URL_PREFIX: next-pwa-example
 
     - name: add nojekyll
       run: touch ./out/.nojekyll
