@@ -1,5 +1,7 @@
 import CommonLayout from '@/layouts/CommonLayout'
 import PwaInstallButton from '@/components/PwaInstallButton'
+import reactNativeUtility from '@/utilities/reactNativeUtility'
+import powerWebAppUtility from '@/utilities/powerWebAppUtility'
 
 export default function Home() {
   return (
@@ -33,13 +35,32 @@ export default function Home() {
             {"PWA判定"}
           </h2>
           {
-            typeof window !== "undefined" && window.matchMedia('(display-mode: standalone)').matches ? (
+            powerWebAppUtility.isDisplayModeStandalone() ? (
               <div style={{color: "green"}}>
                 {"現在、スタンドアローン(PWA)モード"}
               </div>
             ) : (
               <div style={{color: "orange"}}>
                 {"現在、スタンドアローン（PWA）以外のモード"}
+              </div>
+            )
+          }
+          <div>
+            {"※PWAで動いてる場合、スタンドアローンモードで表示される設定にしている"}
+          </div>
+        </section>
+        <section>
+          <h2>
+            {"React Native WebView判定"}
+          </h2>
+          {
+            reactNativeUtility.isReactNative() ? (
+              <div style={{color: "green"}}>
+                {"現在、React Native WebViewモード"}
+              </div>
+            ) : (
+              <div style={{color: "orange"}}>
+                {"現在、通常のWebモード"}
               </div>
             )
           }
