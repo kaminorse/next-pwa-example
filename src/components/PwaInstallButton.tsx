@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import useAddToHomescreenPrompt from "@/hooks/useAddToHomescreenPrompt";
 import { Button } from "@mui/material";
 

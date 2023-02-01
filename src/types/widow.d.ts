@@ -1,5 +1,7 @@
 interface Window {
-  ReactNativeWebView: any;
+  ReactNativeWebView: {
+    postMessage(message: string): void;
+  };
 }
 
 declare var window: Window;

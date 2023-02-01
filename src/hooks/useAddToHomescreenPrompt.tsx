@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
 interface IBeforeInstallPromptEvent extends Event {
   readonly platforms: string[];
@@ -15,9 +15,9 @@ export default function useAddToHomescreenPrompt(): [
   boolean
 ] {
   const [promptable, setPromptable] =
-    React.useState<IBeforeInstallPromptEvent | null>(null);
+    useState<IBeforeInstallPromptEvent | null>(null);
 
-  const [isInstalled, setIsInstalled] = React.useState(false);
+  const [isInstalled, setIsInstalled] = useState(false);
 
   const promptToInstall = () => {
     if (promptable) {
@@ -30,7 +30,7 @@ export default function useAddToHomescreenPrompt(): [
     );
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const ready = (e: IBeforeInstallPromptEvent) => {
       e.preventDefault();
       setPromptable(e);
@@ -43,7 +43,7 @@ export default function useAddToHomescreenPrompt(): [
     };
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const onInstall = () => {
       setIsInstalled(true);
     };

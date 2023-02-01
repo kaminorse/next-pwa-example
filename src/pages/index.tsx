@@ -1,9 +1,10 @@
-import CommonLayout from '@/layouts/CommonLayout'
-import PwaInstallButton from '@/components/PwaInstallButton'
-import reactNativeUtility from '@/utilities/reactNativeUtility'
-import powerWebAppUtility from '@/utilities/powerWebAppUtility'
+import CommonLayout from "@/layouts/CommonLayout";
+import PwaInstallButton from "@/components/PwaInstallButton";
+import reactNativeUtility from "@/utilities/reactNativeUtility";
+import powerWebAppUtility from "@/utilities/powerWebAppUtility";
+import NotificationPermissionButton from "@/components/NotificationPermissionButton";
 
-export default function Home() {
+export default function Index() {
   return (
     <>
       <CommonLayout title="test">
@@ -64,9 +65,12 @@ export default function Home() {
               </div>
             )
           }
-          <div>
-            {"※PWAで動いてる場合、スタンドアローンモードで表示される設定にしている"}
-          </div>
+        </section>
+        <section>
+          <h2>
+            {"通知の承認"}
+          </h2>
+          <NotificationPermissionButton />
         </section>
       </CommonLayout>
     </>
