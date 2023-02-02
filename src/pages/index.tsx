@@ -3,6 +3,9 @@ import PwaInstallButton from "@/components/PwaInstallButton";
 import reactNativeUtility from "@/utilities/reactNativeUtility";
 import powerWebAppUtility from "@/utilities/powerWebAppUtility";
 import NotificationPermissionButton from "@/components/NotificationPermissionButton";
+import { Button } from "@mui/material";
+import TestMessagePayload from "@/models/ReactNativeActionPayload/TestMessagePayload";
+import ReactNativeActionType from "@/constants/ReactNativeActionType";
 
 export default function Index() {
   return (
@@ -67,6 +70,31 @@ export default function Index() {
           >
             <NotificationPermissionButton />
           </div>
+        </section>
+        <section>
+          <h2>{"React Native メッセージ送信"}</h2>
+          {reactNativeUtility.isReactNative() ? (
+            <div>
+              <Button
+                variant="contained"
+                color="info"
+                onClick={() => {
+                  reactNativeUtility.postAction<TestMessagePayload>({
+                    type: ReactNativeActionType.TEST_MESSAGE,
+                    payload: {
+                      message: `今の時間は「${Date.now().toString()}」です。`,
+                    },
+                  });
+                }}
+              >
+                {"メッセージ送信"}
+              </Button>
+            </div>
+          ) : (
+            <div style={{ color: "orange" }}>
+              {"React Nativeでないため無効です"}
+            </div>
+          )}
         </section>
       </CommonLayout>
     </>
