@@ -9,20 +9,25 @@ export default function NotificationPermissionButton(): JSX.Element {
   useEffect(() => {
     if (typeof Notification !== "undefined") {
       const currentPermission = Notification.permission;
-      setPermission(currentPermission);
-      if (currentPermission === "granted") {
-        const notify = () => {
-          const notification = new Notification(
-            "next-pwa-exampleの通知テスト",
-            {
-              body: "10秒に一回通知してます。拒否するまで止まりません。",
-            }
-          );
-        };
-        setTimeout(notify, 10000);
+      if (currentPermission !== permission) {
+        setPermission(currentPermission);
       }
     }
   }, []);
+
+  useEffect(() => {
+    if (permission === "granted") {
+      const notify = () => {
+        const notification = new Notification(
+          "next-pwa-exampleの通知テスト",
+          {
+            body: "10秒に一回通知してます。拒否するまで止まりません。",
+          }
+        );
+      };
+      setTimeout(notify, 10000);
+    }
+  }, [permission]);
 
   return (
     <>
