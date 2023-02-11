@@ -14,7 +14,7 @@ export default function LineLoginButton(): JSX.Element {
     client_id: "1657898231",
     redirect_uri: "https://kaminorse.github.io/next-pwa-example/account/line/callback",
     state: id,
-    scope: "profile",
+    scope: "profile%20openid",
   };
 
   return (
